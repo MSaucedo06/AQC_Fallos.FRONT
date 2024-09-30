@@ -1,0 +1,43 @@
+<div id="principal">
+<h1>Registro y consulta de Fallas de Equipos</h1>
+@if (fallas.length > 0) {
+    <div>
+    <h2>Lista de Fallas</h2> 
+    <button> + Nueva Falla</button>   
+    <button> + Nuevvo Mantenimiento</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Fecha Falla</th>
+          <th>Prioridad</th>
+          <th>Estatus</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (falla of fallas; track $index) {
+        <tr>
+            <td>{{ falla.id }}</td>
+                <td>{{ falla.equipo_descripcion }}</td>
+                <td>{{ falla.falla_descripcion }}</td>
+                <td>{{ falla.fecha_falla}}</td>
+                <td>{{ falla.prioridad_descripcion }}</td>
+                <td>{{ falla.estatus_descripcion }}</td>
+                <td><button>ver</button></td>
+            </tr>
+            }
+          
+        
+      </tbody>
+    </table>
+  </div>
+
+}@else {  
+  <ng-template #noFallos>
+    <p>No hay fallas disponibles.</p>
+  </ng-template>
+}
+</div>
+
+  
+ 
